@@ -14,7 +14,7 @@ services:
       MYSQL_PASSWORD: haslo1
     networks:
       - mynetwork
-  myapp:
+  mybackend:
     container_name: PetsyBackendServer
 
     build:
@@ -35,6 +35,13 @@ services:
       - sql
     networks:
       - mynetwork
+  myfrontend:
+    container_name: PetsyFrontendServer
+    build:
+      dockerfile: ./PetsyFrontend/Dockerfile
+    ports:
+      - "5000:5000"
+    restart: on-failure
 networks:
   mynetwork:
     driver: bridge

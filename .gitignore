@@ -1,6 +1,7 @@
 ### PROJECT
-./PetsyBackend/target/
+PetsyFrontend/node_modules/*
+PetsyBackend/target/*
 ### IntelliJ IDEA ###
-./PetsyBackend/.idea/
+PetsyBackend/.idea/*
 
 
