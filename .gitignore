@@ -1,7 +1,9 @@
-### PROJECT
+### Frontend
 PetsyFrontend/node_modules/*
-PetsyBackend/target/*
-### IntelliJ IDEA ###
+PetsyFrontend/.idea/*
+PetsyFrontend/package-lock.json
+### Backend
 PetsyBackend/.idea/*
+PetsyBackend/target/*
 
 

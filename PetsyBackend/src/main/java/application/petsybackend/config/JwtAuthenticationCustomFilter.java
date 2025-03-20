@@ -26,10 +26,11 @@ public class JwtAuthenticationCustomFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         System.out.println(request.getHeader("Origin"));
         System.out.println(request.getMethod());
-        User user = userService.getUserByUsername("Konrad123");
-        UsernamePasswordAuthenticationToken userTokenToAuth = new UsernamePasswordAuthenticationToken(user.getUsername(), null,user.getAuthorities());
-        SecurityContextHolder.getContext().setAuthentication(userTokenToAuth);
-        System.out.println("SIEMANKO!!!!");
+        System.out.println(request.getServerName());
+//        User user = userService.getUserByUsername("Konrad123");
+//        UsernamePasswordAuthenticationToken userTokenToAuth = new UsernamePasswordAuthenticationToken(user.getUsername(), null,user.getAuthorities());
+//        SecurityContextHolder.getContext().setAuthentication(userTokenToAuth);
+//        System.out.println("SIEMANKO!!!!");
         filterChain.doFilter(request,response);
     }
 }

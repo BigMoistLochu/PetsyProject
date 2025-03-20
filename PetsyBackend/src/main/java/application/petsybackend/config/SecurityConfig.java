@@ -30,7 +30,7 @@ public class SecurityConfig {
         http.csrf(csrfConfigurer -> csrfConfigurer.disable())
                 .cors(Customizer.withDefaults()) //uzywa beana corsConfiguration jesli jest ustawione na domyslnie
                 .authorizeHttpRequests(request-> request
-                        .requestMatchers(HttpMethod.GET, "/user/test2")
+                        .requestMatchers(HttpMethod.POST, "/user/auth")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
@@ -41,7 +41,7 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5000"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST"));
         configuration.addAllowedHeader("*");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
