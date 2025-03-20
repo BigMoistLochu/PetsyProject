@@ -30,7 +30,7 @@ public class SecurityConfig {
         http.csrf(csrfConfigurer -> csrfConfigurer.disable())
                 .cors(Customizer.withDefaults()) //uzywa beana corsConfiguration jesli jest ustawione na domyslnie
                 .authorizeHttpRequests(request-> request
-                        .requestMatchers(HttpMethod.POST, "/user/auth")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/authenticate")
                         .permitAll()
                         .anyRequest()
                         .authenticated())

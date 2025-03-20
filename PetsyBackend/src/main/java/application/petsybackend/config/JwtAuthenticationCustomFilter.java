@@ -1,6 +1,7 @@
 package application.petsybackend.config;
 
 import application.petsybackend.entities.User;
+import application.petsybackend.services.JwtService;
 import application.petsybackend.services.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -17,20 +18,31 @@ import java.io.IOException;
 public class JwtAuthenticationCustomFilter extends OncePerRequestFilter {
 
     private final UserService userService;
+    private final JwtService jwtService;
 
-    public JwtAuthenticationCustomFilter(UserService userService) {
+    public JwtAuthenticationCustomFilter(UserService userService, JwtService jwtService) {
         this.userService = userService;
+        this.jwtService = jwtService;
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        System.out.println(request.getHeader("Origin"));
-        System.out.println(request.getMethod());
-        System.out.println(request.getServerName());
-//        User user = userService.getUserByUsername("Konrad123");
-//        UsernamePasswordAuthenticationToken userTokenToAuth = new UsernamePasswordAuthenticationToken(user.getUsername(), null,user.getAuthorities());
-//        SecurityContextHolder.getContext().setAuthentication(userTokenToAuth);
-//        System.out.println("SIEMANKO!!!!");
+        String authHeader = request.getHeader("Authorization");
+
+        if(authHeader == null || authHeader.isBlank()){
+            filterChain.doFilter(request,response);
+            return;
+        }
+
+        String jwtToken = authHeader.substring(7);
+        String email_claim = jwtService.getClaim(jwtToken,"email");
+        User user = userService.getUserByEmail(email_claim);
+
+
+        UsernamePasswordAuthenticationToken userTokenToAuth = new UsernamePasswordAuthenticationToken(user.getUsername(),null,user.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(userTokenToAuth);
+
+
         filterChain.doFilter(request,response);
     }
 }
