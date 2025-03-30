@@ -1,7 +1,9 @@
-package application.petsybackend.entities;
+package application.petsybackend.entities.user;
 
 
+import application.petsybackend.entities.Advertisement;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;

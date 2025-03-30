@@ -1,6 +1,6 @@
 package application.petsybackend.config;
 
-import application.petsybackend.entities.User;
+import application.petsybackend.entities.user.User;
 import application.petsybackend.services.JwtService;
 import application.petsybackend.services.UserService;
 import jakarta.servlet.FilterChain;

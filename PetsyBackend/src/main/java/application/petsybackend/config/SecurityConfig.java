@@ -33,7 +33,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/authenticate")
                         .permitAll()
                         .anyRequest()
-                        .authenticated())
+                        .permitAll()) //.authenticated())
                 .addFilterBefore(jwtAuthenticationCustomFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
