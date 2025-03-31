@@ -5,14 +5,12 @@ public class AdvertisementRequest {
     private Long userId;
     private String title;
     private String description;
-    private String imgPath;
 
 
-    public AdvertisementRequest(Long userId, String title, String description, String imgPath) {
+    public AdvertisementRequest(Long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
-        this.imgPath = imgPath;
     }
 
     public Long getUserId() {
@@ -37,13 +35,5 @@ public class AdvertisementRequest {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
     }
 }

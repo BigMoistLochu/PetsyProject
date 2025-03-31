@@ -3,13 +3,9 @@ package application.petsybackend.entities;
 
 import application.petsybackend.entities.user.User;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "advertisement")
-@Setter
-@Getter
 public class Advertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,14 +19,44 @@ public class Advertisement {
 
     private String description;
 
-    private String imgPath;
 
     public Advertisement(){}
 
-    public Advertisement(User user, String title, String description, String imgPath) {
+    public Advertisement(User user, String title, String description) {
         this.user = user;
         this.title = title;
         this.description = description;
-        this.imgPath = imgPath;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

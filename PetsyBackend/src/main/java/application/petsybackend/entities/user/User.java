@@ -1,11 +1,6 @@
 package application.petsybackend.entities.user;
 
-
-import application.petsybackend.entities.Advertisement;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,17 +25,21 @@ public class User implements UserDetails {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "image")
+    private String imgPath;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role", nullable = false)
     private UserRole userRole;
 
     public User(){}
 
-    public User(String username, String email, String password, UserRole userRole) {
+    public User(String username, String email, String password, UserRole userRole, String imgPath) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.userRole = userRole;
+        this.imgPath = imgPath;
     }
 
     @Override
@@ -60,5 +57,45 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 }
