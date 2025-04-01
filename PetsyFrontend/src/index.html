@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petsy</title>
+    <link rel="stylesheet" href="./style/advertisementStyle.css">
 </head>
 
 <body>
@@ -16,10 +17,11 @@
     <button onclick="authUser()">Click me</button>
 
     <button onclick="authUserTest()">Niedozwolony zasob</button>
-    <button onclick="ape()">Wez all ogloszenia</button>
 
-    <script type="module" src="./js/components/advertisementsComponent.js"> </script>
+    <div id="container-for-advertisements"></div>
+
     <script src="./js/auth/authUser.js"></script>
+    <script type="module" src="js/components/AdvertisementsComponent.js"> </script>
 </body>
 
 </html>

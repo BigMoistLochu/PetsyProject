@@ -6,11 +6,9 @@ export async function getAllAdvertisements(){
 
         if (!response.ok) throw new Error("Cos poszlo nie tak");
 
-        const data = await response.json();
-        console.log(data);
-        return data;
+        return await response.json();
     }catch (error){
-        console.error("Błąd logowania:", error.message);
-        alert("Błąd logowania: " + error.message);
+        console.error("Błąd pobierania ogłoszeń:", error.message);
+        return [];
     }
 }

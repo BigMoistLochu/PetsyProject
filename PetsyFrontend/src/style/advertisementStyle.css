@@ -1,0 +1,12 @@
+#container-for-advertisements {
+    display: flex;
+    flex-wrap: wrap;             /* Pozwala na zawijanie elementów */
+    height: 700px;
+}
+
+.item-advertisement {
+    flex: 0 0 22%;               /* Każdy element zajmuje około 22% szerokości kontenera, dając 4 elementy w jednym rzędzie */
+    box-sizing: border-box;      /* Zabezpiecza, żeby padding i border nie wpływały na szerokość elementu */
+    border: 2px solid red;       /* Czerwona obramówka o grubości 2px */
+    margin-bottom: 20px;      /* Opcjonalnie – odstęp między wierszami */
+}
