@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     /* Zabezpiecza, żeby padding i border nie wpływały na szerokość elementu */
+    text-decoration: none;
+}
+
+.navbar{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: crimson;
+    font-family: Calibri;
+}
+
+
+.navdiv {
+    /*Display Flex below*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
